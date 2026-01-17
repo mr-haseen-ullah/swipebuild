@@ -4,15 +4,12 @@ This repository hosts the latest public builds and dashboard for the **Swipe** D
 
 ## 📥 Downloads
 
-Builds are located in the `builds/` directory.
+Builds are provided as `.tar.gz` archives (Standard Linux Format).
 
-| Distribution | Installer Link |
-|--------------|----------------|
-| **Ubuntu** | [install.sh](https://raw.githubusercontent.com/mr-haseen-ullah/swipebuild/main/builds/ubuntu/install.sh) |
-| **Kali** | [install.sh](https://raw.githubusercontent.com/mr-haseen-ullah/swipebuild/main/builds/kali_linux/install.sh) |
-| **CentOS** | [install.sh](https://raw.githubusercontent.com/mr-haseen-ullah/swipebuild/main/builds/centos/install.sh) |
+| Distribution | Download |
+|--------------|----------|
+| **Ubuntu** | [swipe-linux-ubuntu.tar.gz](https://swipe.haseenullah.live/builds/ubuntu/swipe-linux-ubuntu.tar.gz) |
+| **Kali** | [swipe-linux-kali_linux.tar.gz](https://swipe.haseenullah.live/builds/kali_linux/swipe-linux-kali_linux.tar.gz) |
 
 ## 🌐 Web Dashboard
-Visit the dashboard (if configured alongside this repo).
-
-*Auto-generated mirror of the private FYP repository.*
+Visit [swipe.haseenullah.live](https://swipe.haseenullah.live)

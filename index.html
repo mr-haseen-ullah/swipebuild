@@ -204,7 +204,7 @@
             document.getElementById('distro-desc').innerText = data.desc;
 
             // Update Download Button
-            const downloadLink = `${repoRoot}/${data.path}/install.sh`;
+            const downloadLink = `${repoRoot}/${data.path}/swipe-linux-${data.path}.tar.gz`;
             document.getElementById('download-btn').href = downloadLink;
         }
     </script>

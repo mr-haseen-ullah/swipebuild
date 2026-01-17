@@ -1,9 +1,0 @@
-Swipe Desktop App - Linux Build
-
-Build Date: Sat Jan 17 16:47:15 UTC 2026
-Commit: 0bb2a00895b23147c183d19db9ed7a75704e04bf
-Branch: main
-Flutter Version: 3.38.5
-Platform: Ubuntu/Linux (x64)
-
-To Run: ./swipe (requires sudo for drive access)
