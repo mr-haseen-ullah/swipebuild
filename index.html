@@ -22,7 +22,7 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#security">Security</a></li>
                     <li><a href="#downloads" class="btn btn-primary" style="padding: 0.5rem 1rem;">Download</a></li>
-                    <li><a href="https://github.com/mr-haseen-ullah/FYP" target="_blank">GitHub</a></li>
+                    <!-- GitHub Link Removed -->
                 </ul>
             </nav>
         </div>
@@ -37,7 +37,7 @@
 
             <div class="hero-buttons">
                 <a href="#downloads" class="btn btn-primary">Get Started Now</a>
-                <a href="https://github.com/mr-haseen-ullah/FYP" class="btn btn-outline" target="_blank">View Source</a>
+                <!-- "View Source" Removed -->
             </div>
 
             <div class="hero-visual">
@@ -127,22 +127,22 @@
                 <div class="download-content">
                     <div class="download-info">
                         <h3 id="distro-title">Ubuntu 22.04+ / Debian 11+</h3>
-                        <p style="margin-bottom: 1rem; color: var(--text-secondary);" id="distro-desc">
+                        <p style="margin-bottom: 2rem; color: var(--text-secondary);" id="distro-desc">
                             Standard build for Debian-based distributions. Supports APT package manager dependencies.
                         </p>
-                        <ul>
-                            <li>Latest Stable Build</li>
-                            <li>Includes CLI & GUI</li>
-                            <li>64-bit Architecture (x86_64)</li>
-                        </ul>
+
+                        <!-- Download Button Replacement -->
+                        <div style="text-align: left;">
+                            <a id="download-btn" href="builds/ubuntu/install.sh" class="btn btn-primary" download>
+                                ⬇️ Download Installer
+                            </a>
+                            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                <em>Right-click > "Save link as..." if the file opens in browser.</em>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="command-box">
-                        <span class="copy-btn" onclick="copyCommand()">Copy</span>
-                        <code id="install-cmd">
-wget -O install.sh https://raw.githubusercontent.com/mr-haseen-ullah/FYP/builds/linux/ready_to_use/ubuntu/install.sh && chmod +x install.sh && sudo ./install.sh
-                        </code>
-                    </div>
+                    <!-- Command Box Removed -->
                 </div>
             </div>
         </div>
@@ -154,15 +154,16 @@ wget -O install.sh https://raw.githubusercontent.com/mr-haseen-ullah/FYP/builds/
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Use</a>
-                <a href="https://github.com/mr-haseen-ullah/FYP/issues">Support</a>
-                <a href="https://github.com/mr-haseen-ullah/FYP">GitHub</a>
+                <a href="mailto:support@swipe-tool.com">Support</a>
+                <!-- GitHub Link Removed -->
             </div>
             <p>&copy; 2026 Swipe Project. Licensed under MIT.</p>
         </div>
     </footer>
 
     <script>
-        const repoUrl = "https://raw.githubusercontent.com/mr-haseen-ullah/swipebuild/main/builds";
+        // Start from root of the current deployment
+        const repoRoot = "builds";
 
         const distros = {
             ubuntu: {
@@ -202,18 +203,9 @@ wget -O install.sh https://raw.githubusercontent.com/mr-haseen-ullah/FYP/builds/
             document.getElementById('distro-title').innerText = data.title;
             document.getElementById('distro-desc').innerText = data.desc;
 
-            // Update Command
-            const cmd = `wget -O install.sh ${repoUrl}/${data.path}/install.sh && chmod +x install.sh && sudo ./install.sh`;
-            document.getElementById('install-cmd').innerText = cmd;
-        }
-
-        function copyCommand() {
-            const cmdText = document.getElementById('install-cmd').innerText;
-            navigator.clipboard.writeText(cmdText).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                btn.innerText = "Copied!";
-                setTimeout(() => btn.innerText = "Copy", 2000);
-            });
+            // Update Download Button
+            const downloadLink = `${repoRoot}/${data.path}/install.sh`;
+            document.getElementById('download-btn').href = downloadLink;
         }
     </script>
 </body>
