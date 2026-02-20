@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Installation | Swipe Documentation</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { brand: '#00d0ff', darkBg: '#0a0a0a', darkSurface: '#161616', darkBorder: '#262626' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'custom': '4px' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: #e5e5e5;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #00d0ff;
+        }
+
+        .brutalist-card {
+            border: 2px solid #262626;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.2s ease;
+        }
+
+        .brutalist-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #262626;
+            border-radius: 4px;
+        }
+
+        .sidebar-link {
+            display: block;
+            margin-left: -1px;
+            border-left: 1px solid transparent;
+            padding-left: 1rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            transition: all 0.15s;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            border-left: 2px solid #00d0ff;
+            color: #00d0ff;
+        }
+
+        .sidebar-link.active {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-50 w-full border-b border-darkBorder bg-darkBg/80 backdrop-blur-md">
+        <div class="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-2 group" href="../index.html">
+                    <div
+                        class="h-8 w-8 bg-brand rounded-custom flex items-center justify-center font-bold text-black group-hover:rotate-12 transition-transform">
+                        S</div>
+                    <span class="text-xl font-bold tracking-tight text-white">Swipe<span
+                            class="text-brand">.</span>Docs</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="text-sm font-medium text-gray-400 hover:text-brand transition-colors" href="../index.html">←
+                    Back to Home</a>
+                <div class="h-4 w-[1px] bg-darkBorder"></div>
+                <a class="text-gray-400 hover:text-white" href="https://github.com/mr-haseen-ullah/FYP" target="_blank">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mx-auto flex max-w-[1600px] gap-8 px-6">
+        <!-- Left Sidebar -->
+        <aside
+            class="sticky top-16 hidden h-[calc(100vh-64px)] w-64 flex-shrink-0 overflow-y-auto border-r border-darkBorder py-8 pr-4 custom-scrollbar lg:block">
+            <nav class="space-y-8">
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Getting Started</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link active" href="installation.html">Installation</a></li>
+                        <li><a class="sidebar-link" href="quick-start.html">Quick Start</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Core Concepts</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="architecture.html">System Architecture</a></li>
+                        <li><a class="sidebar-link" href="wipe-methods.html">Wipe Methods</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Reference</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="api-reference.html">API Reference</a></li>
+                        <li><a class="sidebar-link" href="troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="min-w-0 flex-1 py-12">
+            <header class="mb-10">
+                <p class="mb-2 text-sm font-semibold text-brand">Getting Started</p>
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Installation</h1>
+                <p class="mt-4 text-lg text-gray-400 leading-relaxed">Everything you need to set up Swipe on your Linux
+                    machine.</p>
+            </header>
+
+            <div class="prose prose-invert max-w-none">
+                <!-- Prerequisites -->
+                <section class="mb-12" id="prerequisites">
+                    <h2 class="text-2xl font-bold text-white mb-4">Prerequisites</h2>
+                    <p class="text-gray-400 mb-4">Before installing Swipe, ensure your system meets these requirements:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-400">
+                        <li>Linux kernel 4.4+ (5.4+ recommended for full NVMe support)</li>
+                        <li>Root / sudo privileges (required for direct disk access)</li>
+                        <li><code class="bg-black/40 px-1 rounded">libgtk-3-0</code>, <code
+                                class="bg-black/40 px-1 rounded">liblzma5</code>, <code
+                                class="bg-black/40 px-1 rounded">libblkid1</code></li>
+                        <li><code class="bg-black/40 px-1 rounded">smartmontools</code> (for SMART health monitoring)
+                        </li>
+                        <li>At least 256MB free RAM</li>
+                    </ul>
+                </section>
+
+                <!-- Pre-Built Binary -->
+                <section class="mb-12" id="prebuilt">
+                    <h2 class="text-2xl font-bold text-white mb-4">Install Pre-Built Binary (Recommended)</h2>
+                    <p class="text-gray-400 mb-6">Download the pre-compiled build for your distribution from our <a
+                            href="../index.html#download" class="text-brand underline">Download Center</a>, then:</p>
+                    <div class="code-block p-4 relative mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono text-gray-500 uppercase">Terminal</span>
+                        </div>
+                        <pre class="overflow-x-auto"><code class="text-sm font-mono leading-relaxed"><span class="text-brand"># Extract the archive</span>
+tar -xzf swipe-linux-ubuntu.tar.gz
+cd swipe-linux-ubuntu
+
+<span class="text-brand"># Install system-wide</span>
+sudo ./install.sh
+
+<span class="text-brand"># Verify installation</span>
+sudo swipe</code></pre>
+                    </div>
+
+                    <div class="brutalist-card bg-orange-900/10 border-orange-500/50 p-6 mb-8 rounded-custom">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 text-orange-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-orange-400">Root Privileges Required</h4>
+                                <p class="mt-1 text-sm text-gray-300">Swipe must run as root (<code
+                                        class="bg-black/40 px-1 rounded">sudo</code>) to access raw disk devices. The
+                                    install script copies files to <code
+                                        class="bg-black/40 px-1 rounded">/opt/swipe</code> and creates a desktop menu
+                                    entry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Build from Source -->
+                <section class="mb-12" id="from-source">
+                    <h2 class="text-2xl font-bold text-white mb-4">Build from Source</h2>
+                    <p class="text-gray-400 mb-6">For developers or if pre-built binaries are not available for your
+                        distribution.</p>
+
+                    <h3 class="text-xl font-bold text-white mb-3">1. Build Dependencies</h3>
+                    <div class="code-block p-4 relative mb-6">
+                        <pre class="overflow-x-auto"><code class="text-sm font-mono leading-relaxed"><span class="text-brand"># Ubuntu / Debian</span>
+sudo apt-get install -y cmake build-essential libudev-dev libssl-dev \
+  clang ninja-build pkg-config libgtk-3-dev liblzma-dev smartmontools
+
+<span class="text-brand"># Install Flutter SDK</span>
+<span class="text-gray-500"># See https://docs.flutter.dev/get-started/install/linux</span></code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-3">2. Build Backend (C Library)</h3>
+                    <div class="code-block p-4 relative mb-6">
+                        <pre class="overflow-x-auto"><code class="text-sm font-mono leading-relaxed">cd swipe-cli
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j$(nproc)
+<span class="text-brand"># Output: build/libdriveinfo.so</span></code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-3">3. Build Frontend (Flutter App)</h3>
+                    <div class="code-block p-4 relative mb-6">
+                        <pre class="overflow-x-auto"><code class="text-sm font-mono leading-relaxed"><span class="text-brand"># Copy library to Flutter project</span>
+cp swipe-cli/build/libdriveinfo.so swip2.0/linux/libs/
+
+cd swip2.0
+flutter pub get
+flutter build linux --release
+<span class="text-brand"># Output: build/linux/x64/release/bundle/swipe</span></code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-3">4. Install</h3>
+                    <div class="code-block p-4 relative mb-6">
+                        <pre class="overflow-x-auto"><code class="text-sm font-mono leading-relaxed">sudo mkdir -p /opt/swipe
+sudo cp -r build/linux/x64/release/bundle/* /opt/swipe/
+sudo chmod +x /opt/swipe/swipe
+sudo ln -sf /opt/swipe/swipe /usr/local/bin/swipe</code></pre>
+                    </div>
+
+                    <div class="brutalist-card bg-brand/10 border-brand/50 p-6 rounded-custom">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 text-brand">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-brand">Pro Tip</h4>
+                                <p class="mt-1 text-sm text-gray-300">The GitHub Actions pipeline (<code
+                                        class="bg-black/40 px-1 rounded">build-deploy.yml</code>) automates all these
+                                    steps. Every push to <code class="bg-black/40 px-1 rounded">main</code> triggers a
+                                    fresh build.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Nav Footer -->
+            <footer class="mt-20 border-t border-darkBorder pt-10">
+                <div class="flex justify-between gap-4">
+                    <a class="group flex-1 rounded-custom border border-darkBorder p-6 hover:border-brand transition-all"
+                        href="../index.html">
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Previous</span>
+                        <span class="block mt-2 text-xl font-bold text-white group-hover:text-brand">← Home</span>
+                    </a>
+                    <a class="group flex-1 rounded-custom border border-darkBorder p-6 text-right hover:border-brand transition-all"
+                        href="quick-start.html">
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Next</span>
+                        <span class="block mt-2 text-xl font-bold text-white group-hover:text-brand">Quick Start
+                            →</span>
+                    </a>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Right TOC -->
+        <aside class="sticky top-16 hidden h-[calc(100vh-64px)] w-56 flex-shrink-0 overflow-y-auto py-12 pl-6 xl:block">
+            <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-white">On this page</h5>
+            <nav class="space-y-3">
+                <a class="block text-sm text-gray-400 hover:text-brand transition-colors"
+                    href="#prerequisites">Prerequisites</a>
+                <a class="block text-sm text-gray-400 hover:text-brand transition-colors" href="#prebuilt">Pre-Built
+                    Binary</a>
+                <a class="block text-sm text-gray-400 hover:text-brand transition-colors" href="#from-source">Build from
+                    Source</a>
+            </nav>
+        </aside>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Wipe Methods | Swipe Documentation</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: '#00d0ff', darkBg: '#0a0a0a', darkSurface: '#161616', darkBorder: '#262626' }, fontFamily: { sans: ['Inter', 'sans-serif'] }, borderRadius: { 'custom': '4px' } } } }</script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: #e5e5e5
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 10px
+        }
+
+        .sidebar-link {
+            display: block;
+            margin-left: -1px;
+            border-left: 1px solid transparent;
+            padding-left: 1rem;
+            font-size: .875rem;
+            color: #9ca3af;
+            transition: all .15s
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            border-left: 2px solid #00d0ff;
+            color: #00d0ff
+        }
+
+        .sidebar-link.active {
+            font-weight: 600
+        }
+
+        .brutalist-card {
+            border: 2px solid #262626;
+            box-shadow: 4px 4px 0px #000
+        }
+
+        .method-card {
+            background: #161616;
+            border: 1px solid #262626;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all .2s
+        }
+
+        .method-card:hover {
+            border-color: #00d0ff40;
+            transform: translateY(-2px)
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <nav class="sticky top-0 z-50 w-full border-b border-darkBorder bg-darkBg/80 backdrop-blur-md">
+        <div class="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6">
+            <a class="flex items-center gap-2 group" href="../index.html">
+                <div
+                    class="h-8 w-8 bg-brand rounded-custom flex items-center justify-center font-bold text-black group-hover:rotate-12 transition-transform">
+                    S</div><span class="text-xl font-bold tracking-tight text-white">Swipe<span
+                        class="text-brand">.</span>Docs</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a class="text-sm text-gray-400 hover:text-brand" href="../index.html">← Back to Home</a>
+                <div class="h-4 w-[1px] bg-darkBorder"></div>
+                <a class="text-gray-400 hover:text-white" href="https://github.com/mr-haseen-ullah/FYP"
+                    target="_blank"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                        </path>
+                    </svg></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mx-auto flex max-w-[1600px] gap-8 px-6">
+        <aside
+            class="sticky top-16 hidden h-[calc(100vh-64px)] w-64 flex-shrink-0 overflow-y-auto border-r border-darkBorder py-8 pr-4 custom-scrollbar lg:block">
+            <nav class="space-y-8">
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Getting Started</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="installation.html">Installation</a></li>
+                        <li><a class="sidebar-link" href="quick-start.html">Quick Start</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Core Concepts</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="architecture.html">System Architecture</a></li>
+                        <li><a class="sidebar-link active" href="wipe-methods.html">Wipe Methods</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Reference</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="api-reference.html">API Reference</a></li>
+                        <li><a class="sidebar-link" href="troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="min-w-0 flex-1 py-12">
+            <header class="mb-10">
+                <p class="mb-2 text-sm font-semibold text-brand">Core Concepts</p>
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Wipe Methods</h1>
+                <p class="mt-4 text-lg text-gray-400 leading-relaxed">All data sanitization methods supported by Swipe,
+                    from quick zero-fill to NIST 800-88 Purge.</p>
+            </header>
+
+            <!-- Software Methods -->
+            <section class="mb-16" id="software">
+                <h2 class="text-2xl font-bold text-white mb-2">Software Methods</h2>
+                <p class="text-gray-400 mb-6">The CPU writes patterns to every sector of the drive. Works on <strong
+                        class="text-white">all drive types</strong>.</p>
+
+                <div class="space-y-4">
+                    <div class="method-card">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Zero Fill</h3>
+                                <p class="text-gray-500 text-sm mt-1">Writes <code
+                                        class="bg-black/40 px-1 rounded">0x00</code> to every sector.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full border border-green-800">1
+                                    Pass</span>
+                                <span
+                                    class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full border border-green-800">Fastest</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Best for: Non-sensitive data, quick device recycling. Not
+                            suitable for classified data.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Random Fill</h3>
+                                <p class="text-gray-500 text-sm mt-1">Writes cryptographically random bytes using ISAAC
+                                    PRNG.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-yellow-900/30 text-yellow-400 rounded-full border border-yellow-800">1
+                                    Pass</span>
+                                <span
+                                    class="px-3 py-1 bg-yellow-900/30 text-yellow-400 rounded-full border border-yellow-800">Moderate</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Best for: General-purpose secure erasure. Provides better
+                            entropy than zero/one fill.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">DoD 5220.22-M (3-Pass)</h3>
+                                <p class="text-gray-500 text-sm mt-1">Pass 1: <code
+                                        class="bg-black/40 px-1 rounded">0xFF</code> → Pass 2: <code
+                                        class="bg-black/40 px-1 rounded">0x00</code> → Pass 3: Random</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-orange-900/30 text-orange-400 rounded-full border border-orange-800">3
+                                    Passes</span>
+                                <span
+                                    class="px-3 py-1 bg-orange-900/30 text-orange-400 rounded-full border border-orange-800">Standard</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Best for: Government and corporate compliance. Time = ~3×
+                            single pass.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">DoD 5220.22-M ECE (7-Pass)</h3>
+                                <p class="text-gray-500 text-sm mt-1">Extended version with 7 alternating pattern
+                                    passes.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full border border-red-800">7
+                                    Passes</span>
+                                <span
+                                    class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full border border-red-800">Secure</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Best for: High-security requirements. Significantly slower
+                            but very thorough.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Gutmann Method</h3>
+                                <p class="text-gray-500 text-sm mt-1">35 passes with specific patterns designed for
+                                    older magnetic media.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full border border-red-800">35
+                                    Passes</span>
+                                <span
+                                    class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full border border-red-800">Maximum</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Best for: Legacy compliance or extreme requirements.
+                            Generally considered overkill for modern drives.</p>
+                    </div>
+
+                    <div class="method-card border-brand/30">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">NIST 800-88 Clear</h3>
+                                <p class="text-gray-500 text-sm mt-1">NIST Special Publication 800-88 Rev. 1 compliant
+                                    clear method.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full border border-blue-800">NIST</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full border border-blue-800">Recommended</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Best for: Federal agencies, enterprise compliance. The
+                            modern standard for software-based sanitization.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hardware Methods -->
+            <section class="mb-16" id="hardware">
+                <h2 class="text-2xl font-bold text-white mb-2">Hardware Methods (Purge)</h2>
+                <p class="text-gray-400 mb-6">The drive firmware handles the erasure internally. <strong
+                        class="text-white">Much faster</strong> but requires hardware support.</p>
+
+                <div class="space-y-4">
+                    <div class="method-card border-purple-500/30">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">ATA Security Erase</h3>
+                                <p class="text-gray-500 text-sm mt-1">Sends ATA SECURITY ERASE UNIT command. Drive
+                                    firmware erases all user-accessible sectors.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full border border-purple-800">ATA</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full border border-purple-800">Firmware</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Requires: ATA/SATA drive with security feature set. Drive
+                            must not be frozen. Typically takes 30-120 minutes for HDDs, seconds for SSDs.</p>
+                    </div>
+
+                    <div class="method-card border-purple-500/30">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">ATA Enhanced Secure Erase</h3>
+                                <p class="text-gray-500 text-sm mt-1">Enhanced variant that also erases reallocated and
+                                    reserved sectors.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full border border-purple-800">ATA</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full border border-purple-800">Enhanced</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Requires: Drive must report enhanced erase capability.
+                            Accesses sectors that software methods cannot reach.</p>
+                    </div>
+
+                    <div class="method-card border-purple-500/30">
+                        <div class="flex items-start justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">NVMe Sanitize (Crypto Erase)</h3>
+                                <p class="text-gray-500 text-sm mt-1">Destroys the encryption key, rendering all data
+                                    permanently unrecoverable in milliseconds.</p>
+                            </div>
+                            <div class="flex gap-3 text-xs">
+                                <span
+                                    class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full border border-purple-800">NVMe</span>
+                                <span
+                                    class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full border border-green-800">Instant</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">Requires: NVMe drive with Crypto Erase support. The
+                            fastest possible sanitization method.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison Table -->
+            <section class="mb-16" id="comparison">
+                <h2 class="text-2xl font-bold text-white mb-6">Comparison Table</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-xs uppercase text-gray-500 border-b border-darkBorder">
+                            <tr>
+                                <th class="py-3 px-4">Method</th>
+                                <th class="py-3 px-4">Passes</th>
+                                <th class="py-3 px-4">Speed</th>
+                                <th class="py-3 px-4">Security</th>
+                                <th class="py-3 px-4">Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-400">
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4">Zero Fill</td>
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4 text-yellow-400">★★☆☆☆</td>
+                                <td class="py-3 px-4">Quick recycle</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4">Random</td>
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4 text-green-400">★★★★☆</td>
+                                <td class="py-3 px-4 text-yellow-400">★★★☆☆</td>
+                                <td class="py-3 px-4">General secure</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4">DoD 3-Pass</td>
+                                <td class="py-3 px-4">3</td>
+                                <td class="py-3 px-4 text-yellow-400">★★★☆☆</td>
+                                <td class="py-3 px-4 text-green-400">★★★★☆</td>
+                                <td class="py-3 px-4">Corporate</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4">DoD 7-Pass</td>
+                                <td class="py-3 px-4">7</td>
+                                <td class="py-3 px-4 text-red-400">★★☆☆☆</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4">Government</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4">Gutmann</td>
+                                <td class="py-3 px-4">35</td>
+                                <td class="py-3 px-4 text-red-400">★☆☆☆☆</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4">Legacy max</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-brand">NIST Clear</td>
+                                <td class="py-3 px-4">1-3</td>
+                                <td class="py-3 px-4 text-green-400">★★★★☆</td>
+                                <td class="py-3 px-4 text-green-400">★★★★☆</td>
+                                <td class="py-3 px-4">Modern standard</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-purple-400">ATA Secure Erase</td>
+                                <td class="py-3 px-4">FW</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4">SATA drives</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 text-purple-400">NVMe Crypto Erase</td>
+                                <td class="py-3 px-4">FW</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4 text-green-400">★★★★★</td>
+                                <td class="py-3 px-4">NVMe SSDs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="mt-20 border-t border-darkBorder pt-10">
+                <div class="flex justify-between gap-4">
+                    <a class="group flex-1 rounded-custom border border-darkBorder p-6 hover:border-brand transition-all"
+                        href="architecture.html">
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Previous</span>
+                        <span class="block mt-2 text-xl font-bold text-white group-hover:text-brand">←
+                            Architecture</span>
+                    </a>
+                    <a class="group flex-1 rounded-custom border border-darkBorder p-6 text-right hover:border-brand transition-all"
+                        href="api-reference.html">
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Next</span>
+                        <span class="block mt-2 text-xl font-bold text-white group-hover:text-brand">API Reference
+                            →</span>
+                    </a>
+                </div>
+            </footer>
+        </main>
+
+        <aside class="sticky top-16 hidden h-[calc(100vh-64px)] w-56 flex-shrink-0 overflow-y-auto py-12 pl-6 xl:block">
+            <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-white">On this page</h5>
+            <nav class="space-y-3">
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#software">Software Methods</a>
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#hardware">Hardware Methods</a>
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#comparison">Comparison Table</a>
+            </nav>
+        </aside>
+    </div>
+</body>
+
+</html>

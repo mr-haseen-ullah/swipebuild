@@ -1,213 +1,499 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swipe - Professional Data Sanitization</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Swipe - Professional Data Sanitization for Linux</title>
+    <meta name="description"
+        content="NIST 800-88 compliant, hardware-accelerated secure drive erasure for Linux. Open source." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: '#00d0ff', darkBg: '#0b1120', cardBg: '#151c2c' },
+                    borderRadius: { 'custom': '1rem' }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            border-right: .15em solid #00d0ff;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .05em;
+            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+        }
+
+        .mesh-gradient {
+            background-color: #0b1120;
+            background-image:
+                radial-gradient(at 0% 0%, hsla(191, 100%, 50%, 0.1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(220, 100%, 50%, 0.05) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(191, 100%, 50%, 0.1) 0, transparent 50%);
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 208, 255, 0.2);
+            border-color: rgba(0, 208, 255, 0.4);
+        }
+
+        .tab-active {
+            background-color: #00d0ff;
+            color: #0b1120;
+        }
+
+        .tab-btn {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-darkBg text-slate-200 font-sans selection:bg-brand selection:text-darkBg">
 
     <!-- Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <span>⚡</span> SWIPE
+    <nav class="fixed top-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand rounded flex items-center justify-center">
+                    <svg class="w-5 h-5 text-darkBg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="3"></path>
+                    </svg>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#security">Security</a></li>
-                    <li><a href="#downloads" class="btn btn-primary" style="padding: 0.5rem 1rem;">Download</a></li>
-                    <!-- GitHub Link Removed -->
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Professional Grade<br>Data Sanitization for Linux</h1>
-            <p>NIST 800-88 Compliant. Hardware-Accelerated. Open Source.<br>The first truly native secure erase tool for
-                modern Linux environments.</p>
-
-            <div class="hero-buttons">
-                <a href="#downloads" class="btn btn-primary">Get Started Now</a>
-                <!-- "View Source" Removed -->
-            </div>
-
-            <div class="hero-visual">
-                <!-- Placeholder for UI Screenshot -->
-                <div style="font-size: 5rem; opacity: 0.2;">🖥️ UI PREVIEW</div>
+                <span class="text-xl font-extrabold tracking-tight text-white uppercase">Swipe</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a class="hover:text-brand transition-colors" href="#features">Features</a>
+                <a class="hover:text-brand transition-colors" href="#preview">UI Preview</a>
+                <a class="hover:text-brand transition-colors" href="docs/installation.html">Docs</a>
+                <a class="hover:text-brand transition-colors" href="#download">Download</a>
+                <a class="bg-brand text-darkBg px-5 py-2.5 rounded-full font-bold hover:opacity-90 transition-opacity"
+                    href="#download">Get Started</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Swipe?</h2>
-                <p>Built for professionals who demand speed, security, and verification.</p>
-            </div>
+    <main class="mesh-gradient pt-20">
 
-            <div class="features-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="icon-box">🔒</div>
-                    <h3>Hardware Purge</h3>
-                    <p>Leverages ATA Security Erase and NVMe Sanitize commands to instruct the drive firmware to destroy
-                        data instantly and securely.</p>
+        <!-- Hero Section -->
+        <section class="relative px-6 py-24 lg:py-32 overflow-hidden" id="hero">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight">
+                    Sanitize with <span class="text-brand">Certainty</span>
+                </h1>
+                <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    NIST 800-88 Compliant. Hardware-Accelerated. Open Source.<br />
+                    The first truly native secure erase tool for modern Linux environments.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+                    <a class="px-8 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,208,255,0.3)]"
+                        href="#download">Get Started Now</a>
+                    <a class="px-8 py-4 bg-slate-800 text-white rounded-xl font-bold text-lg border border-slate-700 hover:bg-slate-700 transition-colors"
+                        href="docs/installation.html">View Documentation</a>
                 </div>
-
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="icon-box">📊</div>
-                    <h3>Smart Verification</h3>
-                    <p>Automated post-wipe verification passes ensue 100% data destruction. Detects hidden sectors and
-                        DCO areas.</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="icon-box">🐧</div>
-                    <h3>Multi-Distro Support</h3>
-                    <p>Native support for Ubuntu, Kali, CentOS, RHEL, and Rocky Linux. No dependencies on Wine or
-                        Windows PE.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <div class="icon-box">📝</div>
-                    <h3>Audit Ready</h3>
-                    <p>Generates detailed PDF certificates of sanitization compatible with enterprise compliance
-                        requirements (ISO 27001).</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="feature-card">
-                    <div class="icon-box">⚡</div>
-                    <h3>Modern UI</h3>
-                    <p>Beautiful Flutter-based interface designed for efficiency. Dark mode native with real-time
-                        progress visualization.</p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="feature-card">
-                    <div class="icon-box">🛡️</div>
-                    <h3>Safety First</h3>
-                    <p>Built-in checks for frozen drives, root privileges, and BIOS locks validation to prevent
-                        accidental data loss.</p>
+                <!-- Terminal Mockup -->
+                <div
+                    class="max-w-3xl mx-auto bg-[#0d1117] rounded-xl border border-slate-700 shadow-2xl overflow-hidden text-left font-mono text-sm leading-relaxed">
+                    <div class="bg-slate-800/50 px-4 py-2 border-b border-slate-700 flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                        <span class="ml-2 text-slate-400 text-xs">swipe-cli --purge /dev/nvme0n1</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex gap-2"><span class="text-brand">$</span><span
+                                class="typing-effect text-slate-300">swipe --target /dev/nvme0n1 --method
+                                nist-purge</span></div>
+                        <div class="text-slate-500">[INFO] Identifying drive: Samsung SSD 980 PRO 1TB</div>
+                        <div class="text-slate-500">[INFO] Supported methods: Crypto Erase, Block Erase, Overwrite</div>
+                        <div class="text-yellow-400">[WARN] This will permanently destroy all data. Continue? (y/n) y
+                        </div>
+                        <div class="text-green-400">[EXEC] Starting Crypto Erase...</div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-4">
+                            <div class="bg-brand h-full w-[65%] transition-all duration-1000"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500 mt-1"><span>65% Complete</span><span>450
+                                MB/s</span></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Download Section -->
-    <section id="downloads" class="download-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Download Center</h2>
-                <p>Select your operating system to get the optimized build.</p>
+        <!-- Features Bento Grid -->
+        <section class="max-w-7xl mx-auto px-6 py-24" id="features">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4">Why Choose Swipe?</h2>
+                <p class="text-slate-400">Built for professionals who demand speed, security, and verification.</p>
             </div>
-
-            <div class="download-container">
-                <div class="os-tabs">
-                    <button class="os-tab active" onclick="switchTab('ubuntu')">Ubuntu / Debian</button>
-                    <button class="os-tab" onclick="switchTab('kali')">Kali Linux</button>
-                    <button class="os-tab" onclick="switchTab('centos')">CentOS Stream</button>
-                    <button class="os-tab" onclick="switchTab('rhel')">Red Hat (RHEL)</button>
-                    <button class="os-tab" onclick="switchTab('rocky')">Rocky Linux</button>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-custom bg-cardBg border border-slate-800 glow-hover transition-all">
+                    <div
+                        class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6 border border-brand/20">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Hardware Purge</h3>
+                    <p class="text-slate-400 leading-relaxed">Leverages ATA Security Erase and NVMe Sanitize commands to
+                        instruct the drive firmware directly.</p>
                 </div>
-
-                <div class="download-content">
-                    <div class="download-info">
-                        <h3 id="distro-title">Ubuntu 22.04+ / Debian 11+</h3>
-                        <p style="margin-bottom: 2rem; color: var(--text-secondary);" id="distro-desc">
-                            Standard build for Debian-based distributions. Supports APT package manager dependencies.
-                        </p>
-
-                        <!-- Download Button Replacement -->
-                        <div style="text-align: left;">
-                            <a id="download-btn" href="builds/ubuntu/swipe-linux-ubuntu.tar.gz" class="btn btn-primary"
-                                download>
-                                ⬇️ Download
-                            </a>
-                            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
-                                <em>Right-click > "Save link as..." if the file opens in browser.</em>
-                            </p>
+                <div
+                    class="col-span-1 md:col-span-2 p-8 rounded-custom bg-cardBg border border-slate-800 glow-hover transition-all relative overflow-hidden flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1">
+                        <div
+                            class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6 border border-brand/20">
+                            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Smart Verification</h3>
+                        <p class="text-slate-400 leading-relaxed">Automated post-wipe verification passes ensure 100%
+                            data destruction. Detects hidden sectors and DCO areas that standard tools miss.</p>
+                    </div>
+                    <div class="flex-1 w-full bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+                        <div class="space-y-3">
+                            <div class="h-1 bg-brand w-3/4 rounded-full"></div>
+                            <div class="h-1 bg-slate-700 w-full rounded-full"></div>
+                            <div class="h-1 bg-brand w-1/2 rounded-full"></div>
                         </div>
                     </div>
-
-                    <!-- Command Box Removed -->
+                </div>
+                <div class="p-8 rounded-custom bg-cardBg border border-slate-800 glow-hover transition-all">
+                    <div
+                        class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6 border border-brand/20">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Audit Ready</h3>
+                    <p class="text-slate-400 leading-relaxed">Generates detailed PDF certificates compatible with
+                        enterprise compliance requirements (ISO 27001, SOC2).</p>
+                </div>
+                <div class="p-8 rounded-custom bg-cardBg border border-slate-800 glow-hover transition-all">
+                    <div
+                        class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6 border border-brand/20">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Modern UI</h3>
+                    <p class="text-slate-400 leading-relaxed">Beautiful Flutter-based interface designed for efficiency.
+                        Dark mode native with real-time progress visualization.</p>
+                </div>
+                <div class="p-8 rounded-custom bg-cardBg border border-slate-800 glow-hover transition-all">
+                    <div
+                        class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6 border border-brand/20">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Safety First</h3>
+                    <p class="text-slate-400 leading-relaxed">Built-in checks for frozen drives, root privileges, and
+                        BIOS locks validation to prevent accidental data loss.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- UI Preview Section -->
+        <section class="py-24 bg-slate-900/40 border-y border-slate-800" id="preview">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="flex-1 order-2 lg:order-1">
+                        <div
+                            class="relative rounded-2xl overflow-hidden border-4 border-slate-800 shadow-2xl bg-[#0b1120]">
+                            <div
+                                class="p-6 bg-slate-800/50 flex items-center justify-between border-b border-slate-700">
+                                <span class="text-white font-bold flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm3 11H7v-2h6v2zm0-4H7V7h6v2z"></path>
+                                    </svg>
+                                    SWIPE DASHBOARD
+                                </span>
+                                <div class="flex gap-1.5">
+                                    <div class="w-3 h-3 rounded-full bg-slate-600"></div>
+                                    <div class="w-3 h-3 rounded-full bg-slate-600"></div>
+                                    <div class="w-3 h-3 rounded-full bg-slate-600"></div>
+                                </div>
+                            </div>
+                            <div class="p-8 grid grid-cols-2 gap-6">
+                                <div class="col-span-2 bg-slate-900/80 p-6 rounded-xl border border-slate-800">
+                                    <div class="flex justify-between mb-4">
+                                        <span class="text-xs text-slate-500 uppercase tracking-widest">Active
+                                            Task</span>
+                                        <span class="text-xs text-brand font-mono">PURGING...</span>
+                                    </div>
+                                    <div class="text-3xl font-black text-white mb-4">74.2%</div>
+                                    <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-brand w-[74%]"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                                    <span class="text-[10px] text-slate-500 uppercase block mb-1">Temperature</span>
+                                    <div class="text-xl font-bold text-white">42°C</div>
+                                </div>
+                                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                                    <span class="text-[10px] text-slate-500 uppercase block mb-1">Health</span>
+                                    <div class="text-xl font-bold text-green-400">100%</div>
+                                </div>
+                            </div>
+                            <div class="px-8 pb-8">
+                                <div
+                                    class="h-32 w-full bg-slate-900/80 rounded-xl border border-slate-800 flex items-end p-4 gap-2">
+                                    <div class="flex-1 bg-brand/20 h-[30%] rounded-t"></div>
+                                    <div class="flex-1 bg-brand/40 h-[50%] rounded-t"></div>
+                                    <div class="flex-1 bg-brand/60 h-[80%] rounded-t"></div>
+                                    <div class="flex-1 bg-brand h-[60%] rounded-t"></div>
+                                    <div class="flex-1 bg-brand/80 h-[90%] rounded-t"></div>
+                                    <div class="flex-1 bg-brand/30 h-[40%] rounded-t"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 order-1 lg:order-2">
+                        <h2 class="text-4xl font-extrabold text-white mb-6">Designed for Focus.</h2>
+                        <p class="text-lg text-slate-400 leading-relaxed mb-8">No distractions. Just the data you need
+                            to ensure a secure wipe. Swipe's dashboard provides real-time telemetry from your drive
+                            controllers while the sanitization process runs in a high-priority system thread.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-white font-medium">
+                                <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                    <path clip-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                                Real-time thermal monitoring
+                            </li>
+                            <li class="flex items-center gap-3 text-white font-medium">
+                                <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                    <path clip-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                                Detailed sector analysis graphs
+                            </li>
+                            <li class="flex items-center gap-3 text-white font-medium">
+                                <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                    <path clip-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                                SMART status health checks
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Center -->
+        <section class="max-w-5xl mx-auto px-6 py-24" id="download">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-white mb-4">Download Center</h2>
+                <p class="text-slate-400">Select your distribution to get the latest stable build.</p>
+            </div>
+            <div class="bg-cardBg border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="flex border-b border-slate-800 overflow-x-auto" id="os-tabs">
+                    <button
+                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider tab-active whitespace-nowrap"
+                        data-distro="ubuntu" onclick="selectTab(this)">Ubuntu / Debian</button>
+                    <button
+                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
+                        data-distro="kali" onclick="selectTab(this)">Kali Linux</button>
+                    <button
+                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
+                        data-distro="centos" onclick="selectTab(this)">CentOS Stream</button>
+                    <button
+                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
+                        data-distro="redhat" onclick="selectTab(this)">Red Hat (RHEL)</button>
+                    <button
+                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
+                        data-distro="rocky" onclick="selectTab(this)">Rocky Linux</button>
+                </div>
+
+                <!-- Ubuntu / Debian -->
+                <div class="p-10 distro-panel" id="panel-ubuntu">
+                    <h3 class="text-2xl font-bold text-white mb-4">Ubuntu 22.04+ / Debian 11+</h3>
+                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Standard build for Debian-based
+                        distributions. Supports APT package manager dependencies and leverages native libraries.</p>
+                    <div class="flex flex-col sm:flex-row items-center gap-6">
+                        <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
+                            href="builds/ubuntu/swipe-linux-ubuntu.tar.gz">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                            Download .tar.gz
+                        </a>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-slate-800/50">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold text-white mb-1">Install via Terminal</p>
+                                <div
+                                    class="bg-slate-900 rounded-lg p-3 text-xs font-mono text-slate-400 flex justify-between items-center border border-slate-800">
+                                    <code>curl -sSL https://get.swipe.haseenullah.live | bash</code>
+                                    <button class="text-brand hover:text-white uppercase font-bold text-[10px]"
+                                        onclick="navigator.clipboard.writeText('curl -sSL https://get.swipe.haseenullah.live | bash')">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kali -->
+                <div class="p-10 distro-panel hidden" id="panel-kali">
+                    <h3 class="text-2xl font-bold text-white mb-4">Kali Linux (Rolling)</h3>
+                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Optimized for Kali Linux rolling release.
+                        Compatible with Kali's Debian-based package ecosystem.</p>
+                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
+                        href="builds/kali_linux/swipe-linux-kali_linux.tar.gz">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        Download .tar.gz
+                    </a>
+                </div>
+
+                <!-- CentOS -->
+                <div class="p-10 distro-panel hidden" id="panel-centos">
+                    <h3 class="text-2xl font-bold text-white mb-4">CentOS Stream 8/9</h3>
+                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Compatible with CentOS Stream and
+                        Fedora-based systems with glibc 2.31+.</p>
+                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
+                        href="builds/centos/swipe-linux-centos.tar.gz">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        Download .tar.gz
+                    </a>
+                </div>
+
+                <!-- Red Hat -->
+                <div class="p-10 distro-panel hidden" id="panel-redhat">
+                    <h3 class="text-2xl font-bold text-white mb-4">Red Hat Enterprise Linux (RHEL 8/9)</h3>
+                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Enterprise-grade build for RHEL
+                        environments. Verified against RHEL 8 and 9 kernels.</p>
+                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
+                        href="builds/redhat_linux/swipe-linux-redhat_linux.tar.gz">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        Download .tar.gz
+                    </a>
+                </div>
+
+                <!-- Rocky -->
+                <div class="p-10 distro-panel hidden" id="panel-rocky">
+                    <h3 class="text-2xl font-bold text-white mb-4">Rocky Linux 8/9</h3>
+                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Binary-compatible with RHEL. Ideal for
+                        enterprise Rocky Linux deployments.</p>
+                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
+                        href="builds/rocky_linux/swipe-linux-rocky_linux.tar.gz">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                        Download .tar.gz
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-                <a href="mailto:support@swipe-tool.com">Support</a>
-                <!-- GitHub Link Removed -->
+    <footer class="bg-darkBg border-t border-slate-800 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-slate-700 rounded flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="3"></path>
+                        </svg>
+                    </div>
+                    <span class="text-lg font-bold text-white tracking-tight uppercase">Swipe</span>
+                </a>
+                <div class="flex gap-8 text-sm font-medium text-slate-500">
+                    <a class="hover:text-brand transition-colors" href="docs/installation.html">Documentation</a>
+                    <a class="hover:text-brand transition-colors" href="docs/architecture.html">Architecture</a>
+                    <a class="hover:text-brand transition-colors" href="docs/api-reference.html">API Reference</a>
+                </div>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand transition-all"
+                        href="https://github.com/mr-haseen-ullah/FYP" target="_blank">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <p>&copy; 2026 Swipe Project. Licensed under MIT.</p>
+            <div class="text-center text-slate-600 text-xs">
+                <p>&copy; 2026 Swipe Project. Licensed under MIT.</p>
+                <p class="mt-2">Independently audited for cryptographic integrity.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Start from root of the current deployment
-        const repoRoot = "builds";
-
-        const distros = {
-            ubuntu: {
-                title: "Ubuntu 22.04+ / Debian 11+",
-                desc: "Standard build for Debian-based distributions. Supports APT package manager dependencies.",
-                path: "ubuntu"
-            },
-            kali: {
-                title: "Kali Linux Rolling",
-                desc: "Optimized for penetration testing environments. Pre-configured for root operations.",
-                path: "kali_linux"
-            },
-            centos: {
-                title: "CentOS Stream 8/9",
-                desc: "Enterprise-grade build for CentOS Stream servers and workstations.",
-                path: "centos"
-            },
-            rhel: {
-                title: "Red Hat Enterprise Linux 8/9",
-                desc: "Certified build for RHEL environments. Requires subscription repositories for dependencies.",
-                path: "redhat_linux"
-            },
-            rocky: {
-                title: "Rocky Linux 8/9",
-                desc: "Community enterprise operating system build. 100% bug-for-bug compatible with RHEL.",
-                path: "rocky_linux"
-            }
-        };
-
-        function switchTab(distroKey) {
-            // Update Tabs
-            document.querySelectorAll('.os-tab').forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Update Content
-            const data = distros[distroKey];
-            document.getElementById('distro-title').innerText = data.title;
-            document.getElementById('distro-desc').innerText = data.desc;
-
-            // Update Download Button
-            const downloadLink = `${repoRoot}/${data.path}/swipe-linux-${data.path}.tar.gz`;
-            document.getElementById('download-btn').href = downloadLink;
+        // Tab switching for download section
+        function selectTab(btn) {
+            document.querySelectorAll('.tab-btn').forEach(t => { t.classList.remove('tab-active'); t.classList.add('text-slate-500'); });
+            btn.classList.add('tab-active'); btn.classList.remove('text-slate-500');
+            const distros = { ubuntu: 'panel-ubuntu', kali: 'panel-kali', centos: 'panel-centos', redhat: 'panel-redhat', rocky: 'panel-rocky' };
+            document.querySelectorAll('.distro-panel').forEach(p => p.classList.add('hidden'));
+            document.getElementById(distros[btn.dataset.distro]).classList.remove('hidden');
         }
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        });
     </script>
 </body>
 

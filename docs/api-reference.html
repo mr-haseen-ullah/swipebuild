@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>API Reference | Swipe Documentation</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: '#00d0ff', darkBg: '#0a0a0a', darkSurface: '#161616', darkBorder: '#262626' }, fontFamily: { sans: ['Inter', 'sans-serif'] }, borderRadius: { 'custom': '4px' } } } }</script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: #e5e5e5
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 10px
+        }
+
+        .sidebar-link {
+            display: block;
+            margin-left: -1px;
+            border-left: 1px solid transparent;
+            padding-left: 1rem;
+            font-size: .875rem;
+            color: #9ca3af;
+            transition: all .15s
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            border-left: 2px solid #00d0ff;
+            color: #00d0ff
+        }
+
+        .sidebar-link.active {
+            font-weight: 600
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #262626;
+            border-radius: 4px
+        }
+
+        .api-card {
+            background: #161616;
+            border: 1px solid #262626;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem
+        }
+
+        .api-header {
+            background: #111;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #262626;
+            font-family: 'Courier New', monospace
+        }
+
+        .api-body {
+            padding: 1.5rem
+        }
+
+        .param-row {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #1a1a1a
+        }
+
+        .param-name {
+            color: #00d0ff;
+            font-family: monospace;
+            font-weight: 600;
+            min-width: 10rem
+        }
+
+        .param-type {
+            color: #9ca3af;
+            font-family: monospace;
+            font-size: 0.8rem;
+            min-width: 8rem
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <nav class="sticky top-0 z-50 w-full border-b border-darkBorder bg-darkBg/80 backdrop-blur-md">
+        <div class="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6">
+            <a class="flex items-center gap-2 group" href="../index.html">
+                <div
+                    class="h-8 w-8 bg-brand rounded-custom flex items-center justify-center font-bold text-black group-hover:rotate-12 transition-transform">
+                    S</div><span class="text-xl font-bold tracking-tight text-white">Swipe<span
+                        class="text-brand">.</span>Docs</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a class="text-sm text-gray-400 hover:text-brand" href="../index.html">← Back to Home</a>
+                <div class="h-4 w-[1px] bg-darkBorder"></div>
+                <a class="text-gray-400 hover:text-white" href="https://github.com/mr-haseen-ullah/FYP"
+                    target="_blank"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                        </path>
+                    </svg></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mx-auto flex max-w-[1600px] gap-8 px-6">
+        <aside
+            class="sticky top-16 hidden h-[calc(100vh-64px)] w-64 flex-shrink-0 overflow-y-auto border-r border-darkBorder py-8 pr-4 custom-scrollbar lg:block">
+            <nav class="space-y-8">
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Getting Started</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="installation.html">Installation</a></li>
+                        <li><a class="sidebar-link" href="quick-start.html">Quick Start</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Core Concepts</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link" href="architecture.html">System Architecture</a></li>
+                        <li><a class="sidebar-link" href="wipe-methods.html">Wipe Methods</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Reference</h5>
+                    <ul class="space-y-2 border-l border-darkBorder ml-1">
+                        <li><a class="sidebar-link active" href="api-reference.html">API Reference</a></li>
+                        <li><a class="sidebar-link" href="troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="min-w-0 flex-1 py-12">
+            <header class="mb-10">
+                <p class="mb-2 text-sm font-semibold text-brand">Reference</p>
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">API Reference</h1>
+                <p class="mt-4 text-lg text-gray-400 leading-relaxed">Complete C API reference for <code
+                        class="bg-black/40 px-1 rounded">libdriveinfo</code> — the native backend library.</p>
+            </header>
+
+            <!-- Device Enumeration -->
+            <section class="mb-16" id="enumeration">
+                <h2 class="text-2xl font-bold text-white mb-6">Device Enumeration</h2>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_enumerate_drives</span>(<span
+                            class="text-yellow-300">drive_info_t **drives</span>, <span class="text-yellow-300">int
+                            *count</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 mb-4">Discovers all physical storage devices connected to the system.
+                            Populates an array of <code class="bg-black/40 px-1 rounded">drive_info_t</code> structs.
+                        </p>
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Parameters</h4>
+                        <div class="space-y-1 mb-4">
+                            <div class="param-row"><span class="param-name">drives</span><span
+                                    class="param-type">drive_info_t**</span><span class="text-gray-500 text-sm">Output
+                                    pointer to allocated drive array</span></div>
+                            <div class="param-row"><span class="param-name">count</span><span
+                                    class="param-type">int*</span><span class="text-gray-500 text-sm">Output number of
+                                    drives found</span></div>
+                        </div>
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Returns</h4>
+                        <p class="text-gray-400 text-sm"><code class="bg-black/40 px-1 rounded">DI_SUCCESS</code> (0) on
+                            success, negative error code on failure.</p>
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">void</span> <span
+                            class="text-white font-bold">di_free_drives</span>(<span
+                            class="text-yellow-300">drive_info_t *drives</span>, <span class="text-yellow-300">int
+                            count</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 text-sm">Frees memory allocated by <code
+                                class="bg-black/40 px-1 rounded">di_enumerate_drives()</code>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Device Details -->
+            <section class="mb-16" id="details">
+                <h2 class="text-2xl font-bold text-white mb-6">Device Details</h2>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_get_drive_details</span>(<span
+                            class="text-yellow-300">drive_info_t *drive</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 mb-4">Fills in detailed metadata for a drive: model, serial number,
+                            firmware version, capacity, and security state.</p>
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Populated Fields</h4>
+                        <div class="space-y-1">
+                            <div class="param-row"><span class="param-name">model</span><span
+                                    class="param-type">char[256]</span><span class="text-gray-500 text-sm">Drive model
+                                    name</span></div>
+                            <div class="param-row"><span class="param-name">serial</span><span
+                                    class="param-type">char[256]</span><span class="text-gray-500 text-sm">Serial
+                                    number</span></div>
+                            <div class="param-row"><span class="param-name">firmware</span><span
+                                    class="param-type">char[256]</span><span class="text-gray-500 text-sm">Firmware
+                                    revision</span></div>
+                            <div class="param-row"><span class="param-name">capacity_bytes</span><span
+                                    class="param-type">uint64_t</span><span class="text-gray-500 text-sm">Total capacity
+                                    in bytes</span></div>
+                            <div class="param-row"><span class="param-name">protocol</span><span
+                                    class="param-type">di_protocol_t</span><span class="text-gray-500 text-sm">ATA,
+                                    NVMe, or SAT</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wipe Operations -->
+            <section class="mb-16" id="wipe">
+                <h2 class="text-2xl font-bold text-white mb-6">Wipe Operations</h2>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_wipe_start</span>(<span class="text-yellow-300">drive_info_t
+                            *drive</span>, <span class="text-yellow-300">di_wipe_method_t method</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 mb-4">Starts an asynchronous wipe operation in a new thread. Returns
+                            immediately.</p>
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Methods
+                            (di_wipe_method_t)</h4>
+                        <div class="grid grid-cols-2 gap-2 text-sm text-gray-400">
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_ZERO</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_ONE</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_RANDOM</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_DOD_3</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_DOD_7</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_GUTMANN</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_NIST_CLEAR</code>
+                            <code class="bg-black/40 px-2 py-1 rounded">DI_WIPE_NIST_PURGE</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_wipe_get_progress</span>(<span
+                            class="text-yellow-300">drive_info_t *drive</span>, <span
+                            class="text-yellow-300">di_wipe_progress_t *progress</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 mb-4">Queries the current progress of a running wipe operation.</p>
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Progress Fields</h4>
+                        <div class="space-y-1">
+                            <div class="param-row"><span class="param-name">percentage</span><span
+                                    class="param-type">double</span><span class="text-gray-500 text-sm">0.0 to
+                                    100.0</span></div>
+                            <div class="param-row"><span class="param-name">bytes_written</span><span
+                                    class="param-type">uint64_t</span><span class="text-gray-500 text-sm">Total bytes
+                                    written so far</span></div>
+                            <div class="param-row"><span class="param-name">speed_bps</span><span
+                                    class="param-type">uint64_t</span><span class="text-gray-500 text-sm">Current speed
+                                    in bytes/second</span></div>
+                            <div class="param-row"><span class="param-name">current_pass</span><span
+                                    class="param-type">int</span><span class="text-gray-500 text-sm">Current pass
+                                    number</span></div>
+                            <div class="param-row"><span class="param-name">total_passes</span><span
+                                    class="param-type">int</span><span class="text-gray-500 text-sm">Total number of
+                                    passes</span></div>
+                            <div class="param-row"><span class="param-name">status</span><span
+                                    class="param-type">di_wipe_status_t</span><span
+                                    class="text-gray-500 text-sm">RUNNING, COMPLETED, FAILED, CANCELLED</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_wipe_cancel</span>(<span
+                            class="text-yellow-300">drive_info_t *drive</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 text-sm">Signals the wipe thread to stop. The thread will finish the
+                            current sector write and exit cleanly.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Purge Operations -->
+            <section class="mb-16" id="purge">
+                <h2 class="text-2xl font-bold text-white mb-6">Purge Operations</h2>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_secure_erase</span>(<span
+                            class="text-yellow-300">drive_info_t *drive</span>, <span class="text-yellow-300">const char
+                            *password</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 mb-4">Performs ATA Security Erase. Sets password, prepares drive, and
+                            sends SECURITY ERASE UNIT command.</p>
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Error Codes</h4>
+                        <div class="space-y-1">
+                            <div class="param-row"><span class="param-name text-red-400">DI_ERR_FROZEN</span><span
+                                    class="param-type">-4</span><span class="text-gray-500 text-sm">Drive is frozen by
+                                    BIOS</span></div>
+                            <div class="param-row"><span
+                                    class="param-name text-red-400">DI_ERR_NOT_SUPPORTED</span><span
+                                    class="param-type">-3</span><span class="text-gray-500 text-sm">Drive doesn't
+                                    support security feature set</span></div>
+                            <div class="param-row"><span class="param-name text-red-400">DI_ERR_PERMISSION</span><span
+                                    class="param-type">-2</span><span class="text-gray-500 text-sm">Not running as
+                                    root</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-header">
+                        <span class="text-green-400">int</span> <span
+                            class="text-white font-bold">di_nvme_sanitize</span>(<span
+                            class="text-yellow-300">drive_info_t *drive</span>, <span
+                            class="text-yellow-300">di_purge_method_t method</span>)
+                    </div>
+                    <div class="api-body">
+                        <p class="text-gray-400 text-sm">Sends NVMe Sanitize command. Methods: <code
+                                class="bg-black/40 px-1 rounded">DI_PURGE_NVME_SANITIZE_CRYPTO</code>, <code
+                                class="bg-black/40 px-1 rounded">DI_PURGE_NVME_SANITIZE_BLOCK</code>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Codes -->
+            <section class="mb-16" id="errors">
+                <h2 class="text-2xl font-bold text-white mb-6">Error Codes</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-xs uppercase text-gray-500 border-b border-darkBorder">
+                            <tr>
+                                <th class="py-3 px-4">Code</th>
+                                <th class="py-3 px-4">Constant</th>
+                                <th class="py-3 px-4">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-400">
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-green-400">0</td>
+                                <td class="py-3 px-4 font-mono">DI_SUCCESS</td>
+                                <td class="py-3 px-4">Operation completed successfully</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-red-400">-1</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_GENERAL</td>
+                                <td class="py-3 px-4">General / unspecified error</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-red-400">-2</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_PERMISSION</td>
+                                <td class="py-3 px-4">Insufficient permissions (not root)</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-red-400">-3</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_NOT_SUPPORTED</td>
+                                <td class="py-3 px-4">Feature not supported by device</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-red-400">-4</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_FROZEN</td>
+                                <td class="py-3 px-4">ATA security is frozen</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-red-400">-5</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_LOCKED</td>
+                                <td class="py-3 px-4">Drive is locked</td>
+                            </tr>
+                            <tr class="border-b border-darkBorder/50">
+                                <td class="py-3 px-4 text-red-400">-6</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_IO</td>
+                                <td class="py-3 px-4">I/O error during operation</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 text-red-400">-7</td>
+                                <td class="py-3 px-4 font-mono">DI_ERR_BUSY</td>
+                                <td class="py-3 px-4">Device is busy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="mt-20 border-t border-darkBorder pt-10">
+                <div class="flex justify-between gap-4">
+                    <a class="group flex-1 rounded-custom border border-darkBorder p-6 hover:border-brand transition-all"
+                        href="wipe-methods.html">
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Previous</span>
+                        <span class="block mt-2 text-xl font-bold text-white group-hover:text-brand">← Wipe
+                            Methods</span>
+                    </a>
+                    <a class="group flex-1 rounded-custom border border-darkBorder p-6 text-right hover:border-brand transition-all"
+                        href="troubleshooting.html">
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Next</span>
+                        <span class="block mt-2 text-xl font-bold text-white group-hover:text-brand">Troubleshooting
+                            →</span>
+                    </a>
+                </div>
+            </footer>
+        </main>
+
+        <aside class="sticky top-16 hidden h-[calc(100vh-64px)] w-56 flex-shrink-0 overflow-y-auto py-12 pl-6 xl:block">
+            <h5 class="mb-4 text-xs font-semibold uppercase tracking-wider text-white">On this page</h5>
+            <nav class="space-y-3">
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#enumeration">Enumeration</a>
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#details">Device Details</a>
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#wipe">Wipe Operations</a>
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#purge">Purge Operations</a>
+                <a class="block text-sm text-gray-400 hover:text-brand" href="#errors">Error Codes</a>
+            </nav>
+        </aside>
+    </div>
+</body>
+
+</html>
