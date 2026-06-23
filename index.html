@@ -62,21 +62,11 @@
             box-shadow: 0 0 20px rgba(0, 208, 255, 0.2);
             border-color: rgba(0, 208, 255, 0.4);
         }
-
-        .tab-active {
-            background-color: #00d0ff;
-            color: #0b1120;
-        }
-
-        .tab-btn {
-            cursor: pointer;
-        }
     </style>
 </head>
 
 <body class="bg-darkBg text-slate-200 font-sans selection:bg-brand selection:text-darkBg">
 
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
@@ -92,16 +82,15 @@
                 <a class="hover:text-brand transition-colors" href="#features">Features</a>
                 <a class="hover:text-brand transition-colors" href="#preview">UI Preview</a>
                 <a class="hover:text-brand transition-colors" href="docs/installation.html">Docs</a>
-                <a class="hover:text-brand transition-colors" href="#download">Download</a>
+                <a class="hover:text-brand transition-colors" href="#contact">Contact</a>
                 <a class="bg-brand text-darkBg px-5 py-2.5 rounded-full font-bold hover:opacity-90 transition-opacity"
-                    href="#download">Get Started</a>
+                    href="#contact">Get in Touch</a>
             </div>
         </div>
     </nav>
 
     <main class="mesh-gradient pt-20">
 
-        <!-- Hero Section -->
         <section class="relative px-6 py-24 lg:py-32 overflow-hidden" id="hero">
             <div class="max-w-4xl mx-auto text-center relative z-10">
                 <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight">
@@ -113,11 +102,10 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
                     <a class="px-8 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,208,255,0.3)]"
-                        href="#download">Get Started Now</a>
+                        href="#contact">Contact for Access</a>
                     <a class="px-8 py-4 bg-slate-800 text-white rounded-xl font-bold text-lg border border-slate-700 hover:bg-slate-700 transition-colors"
                         href="docs/installation.html">View Documentation</a>
                 </div>
-                <!-- Terminal Mockup -->
                 <div
                     class="max-w-3xl mx-auto bg-[#0d1117] rounded-xl border border-slate-700 shadow-2xl overflow-hidden text-left font-mono text-sm leading-relaxed">
                     <div class="bg-slate-800/50 px-4 py-2 border-b border-slate-700 flex items-center gap-2">
@@ -145,7 +133,6 @@
             </div>
         </section>
 
-        <!-- Features Bento Grid -->
         <section class="max-w-7xl mx-auto px-6 py-24" id="features">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4">Why Choose Swipe?</h2>
@@ -228,7 +215,6 @@
             </div>
         </section>
 
-        <!-- UI Preview Section -->
         <section class="py-24 bg-slate-900/40 border-y border-slate-800" id="preview">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col lg:flex-row items-center gap-16">
@@ -319,133 +305,30 @@
             </div>
         </section>
 
-        <!-- Download Center -->
-        <section class="max-w-5xl mx-auto px-6 py-24" id="download">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-white mb-4">Download Center</h2>
-                <p class="text-slate-400">Select your distribution to get the latest stable build.</p>
-            </div>
-            <div class="bg-cardBg border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-                <div class="flex border-b border-slate-800 overflow-x-auto" id="os-tabs">
-                    <button
-                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider tab-active whitespace-nowrap"
-                        data-distro="ubuntu" onclick="selectTab(this)">Ubuntu / Debian</button>
-                    <button
-                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
-                        data-distro="kali" onclick="selectTab(this)">Kali Linux</button>
-                    <button
-                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
-                        data-distro="centos" onclick="selectTab(this)">CentOS Stream</button>
-                    <button
-                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
-                        data-distro="redhat" onclick="selectTab(this)">Red Hat (RHEL)</button>
-                    <button
-                        class="tab-btn px-8 py-5 text-sm font-bold uppercase tracking-wider text-slate-500 hover:text-white transition-colors whitespace-nowrap"
-                        data-distro="rocky" onclick="selectTab(this)">Rocky Linux</button>
+        <section class="max-w-4xl mx-auto px-6 py-24 text-center" id="contact">
+            <div class="p-12 rounded-custom bg-cardBg border border-slate-800 shadow-2xl relative overflow-hidden group hover:border-brand/40 transition-all duration-300">
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand/5 rounded-full blur-3xl group-hover:bg-brand/10 transition-colors"></div>
+                <div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6 mx-auto border border-brand/20">
+                    <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
                 </div>
-
-                <!-- Ubuntu / Debian -->
-                <div class="p-10 distro-panel" id="panel-ubuntu">
-                    <h3 class="text-2xl font-bold text-white mb-4">Ubuntu 22.04+ / Debian 11+</h3>
-                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Standard build for Debian-based
-                        distributions. Supports APT package manager dependencies and leverages native libraries.</p>
-                    <div class="flex flex-col sm:flex-row items-center gap-6">
-                        <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
-                            href="builds/ubuntu/swipe-linux-ubuntu.tar.gz">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                            </svg>
-                            Download .tar.gz
-                        </a>
-                    </div>
-                    <div class="mt-12 pt-8 border-t border-slate-800/50">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="2"></path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm font-bold text-white mb-1">Install via Terminal</p>
-                                <div
-                                    class="bg-slate-900 rounded-lg p-3 text-xs font-mono text-slate-400 flex justify-between items-center border border-slate-800">
-                                    <code>curl -sSL https://get.swipe.haseenullah.live | bash</code>
-                                    <button class="text-brand hover:text-white uppercase font-bold text-[10px]"
-                                        onclick="navigator.clipboard.writeText('curl -sSL https://get.swipe.haseenullah.live | bash')">Copy</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kali -->
-                <div class="p-10 distro-panel hidden" id="panel-kali">
-                    <h3 class="text-2xl font-bold text-white mb-4">Kali Linux (Rolling)</h3>
-                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Optimized for Kali Linux rolling release.
-                        Compatible with Kali's Debian-based package ecosystem.</p>
-                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
-                        href="builds/kali_linux/swipe-linux-kali_linux.tar.gz">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                        Download .tar.gz
-                    </a>
-                </div>
-
-                <!-- CentOS -->
-                <div class="p-10 distro-panel hidden" id="panel-centos">
-                    <h3 class="text-2xl font-bold text-white mb-4">CentOS Stream 8/9</h3>
-                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Compatible with CentOS Stream and
-                        Fedora-based systems with glibc 2.31+.</p>
-                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
-                        href="builds/centos/swipe-linux-centos.tar.gz">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                        Download .tar.gz
-                    </a>
-                </div>
-
-                <!-- Red Hat -->
-                <div class="p-10 distro-panel hidden" id="panel-redhat">
-                    <h3 class="text-2xl font-bold text-white mb-4">Red Hat Enterprise Linux (RHEL 8/9)</h3>
-                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Enterprise-grade build for RHEL
-                        environments. Verified against RHEL 8 and 9 kernels.</p>
-                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
-                        href="builds/redhat_linux/swipe-linux-redhat_linux.tar.gz">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                        Download .tar.gz
-                    </a>
-                </div>
-
-                <!-- Rocky -->
-                <div class="p-10 distro-panel hidden" id="panel-rocky">
-                    <h3 class="text-2xl font-bold text-white mb-4">Rocky Linux 8/9</h3>
-                    <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">Binary-compatible with RHEL. Ideal for
-                        enterprise Rocky Linux deployments.</p>
-                    <a class="w-full sm:w-auto px-10 py-4 bg-brand text-darkBg rounded-xl font-bold text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,208,255,0.2)]"
-                        href="builds/rocky_linux/swipe-linux-rocky_linux.tar.gz">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                        Download .tar.gz
-                    </a>
-                </div>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">Get in Touch</h2>
+                <p class="text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
+                    Interested in deployment, evaluating enterprise compatibility, or contributing to the core engine? Drop a line directly.
+                </p>
+                <a class="inline-flex items-center gap-3 px-8 py-4 bg-brand text-darkBg font-bold text-lg rounded-xl hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,208,255,0.2)]" 
+                   href="mailto:mrhaseenullah1@gmail.com">
+                    mrhaseenullah1@gmail.com
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+                    </svg>
+                </a>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-darkBg border-t border-slate-800 py-16 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
@@ -465,7 +348,7 @@
                 </div>
                 <div class="flex gap-4">
                     <a class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-brand hover:border-brand transition-all"
-                        href="https://github.com/mr-haseen-ullah/FYP" target="_blank">
+                        href="https://github.com/mr-haseen-ullah" target="_blank">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
@@ -482,17 +365,13 @@
     </footer>
 
     <script>
-        // Tab switching for download section
-        function selectTab(btn) {
-            document.querySelectorAll('.tab-btn').forEach(t => { t.classList.remove('tab-active'); t.classList.add('text-slate-500'); });
-            btn.classList.add('tab-active'); btn.classList.remove('text-slate-500');
-            const distros = { ubuntu: 'panel-ubuntu', kali: 'panel-kali', centos: 'panel-centos', redhat: 'panel-redhat', rocky: 'panel-rocky' };
-            document.querySelectorAll('.distro-panel').forEach(p => p.classList.add('hidden'));
-            document.getElementById(distros[btn.dataset.distro]).classList.remove('hidden');
-        }
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+            a.addEventListener('click', e => { 
+                e.preventDefault(); 
+                const t = document.querySelector(a.getAttribute('href')); 
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+            });
         });
     </script>
 </body>
